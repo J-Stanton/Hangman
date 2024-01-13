@@ -1,8 +1,12 @@
+from random import randint
+
+
 MAX_MISTAKES = 7 
 game_over = False
 mistakes = 0
 attempts = 0
 wordlist = []
+listGuessedSoFar = []
 
 def read_file(fileName):
     tfl = open(fileName)
@@ -17,5 +21,8 @@ def guessed_word_so_far(listGuessedSoFar):
     for k in listGuessedSoFar:
         word = word + k
     print(word)
-    
-guessed_word_so_far(["J","_","_","E","S"])
+
+def get_word(wordlist):
+    num = randint(0,len(wordlist)-1)
+    print(wordlist[num])
+
