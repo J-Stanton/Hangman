@@ -12,9 +12,10 @@ def read_file(fileName):
         words[k] = words[k][:-1]
     return words
 
-def print_guessed_word_so_far(listGuessedSoFar):
+def guessed_word_so_far(listGuessedSoFar):
     word = ""
     for k in listGuessedSoFar:
-        word = word + k + " "
-    word = word[:-1]
+        word = word + k
     print(word)
+    
+guessed_word_so_far(["J","_","_","E","S"])
