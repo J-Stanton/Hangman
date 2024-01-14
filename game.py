@@ -7,6 +7,7 @@ mistakes = 0
 attempts = 0
 wordlist = []
 listGuessedSoFar = []
+game_word = ""
 
 def read_file(fileName):
     tfl = open(fileName)
@@ -24,5 +25,11 @@ def guessed_word_so_far(listGuessedSoFar):
 
 def get_word(wordlist):
     num = randint(0,len(wordlist)-1)
-    print(wordlist[num])
+    word = wordlist[num]
+    word_letterList = []
+    for k in word:
+        word_letterList.append("_")
+    return word,word_letterList
+
+def run_game():
 
