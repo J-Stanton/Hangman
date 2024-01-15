@@ -40,21 +40,23 @@ def game():
 
     while not game_over:
         print("-------------------------------------------------")
-        print(listCorrectSoFar)
+        print(" ".join(listCorrectSoFar))
         print("Incorrect letters: " + ",".join(wrongLetters))
         print("Attempts:" + str(mistakes) + "/" + str(MAX_MISTAKES))
 
         print("Guess a letter or guess the word!")
         letter = input().lower()
+
         if letter==game_word:
             game_over = True
             print("well done you guessed the word!")
+        elif letter in listCorrectSoFar or letter in wrongLetters:
+            print("You have guessed that letter already!")
         elif letter in game_word:
             listCorrectSoFar = insert_letter_in_guess(letter,game_word,listCorrectSoFar)
         else:
             mistakes += 1
-            if letter not in wrongLetters:
-                wrongLetters.append(letter)
+            wrongLetters.append(letter)
 
         if ("".join(listCorrectSoFar) == game_word):
             game_over = True
@@ -62,7 +64,19 @@ def game():
         elif mistakes == MAX_MISTAKES:
             game_over = True
             print("unlucky the word was " + game_word)
+    return
 
+def run_game():
+    print("Welcome to hangman!")
+    print("Options:")
+    print("[A] Start New Game, [X] Exit")
+    option = input().upper()
+    while option != "X":
+        if option =="A":
+            game()
+        print("Options:")
+        print("[A] Start New Game, [X] Exit")
+        option = input().upper()
+    print("Goodbye!")
 
-
-game()
+run_game()
