@@ -5,7 +5,13 @@ MAX_MISTAKES = 7
 
 def read_file(fileName):
     tfl = open(fileName)
-    words = tfl.readlines()
+    words = []
+    while True:
+        line = tfl.readline().lower()
+        if line =="":
+            break
+        else:
+            words.append(line)
     tfl.close
     for k in range (len(words)-1):
         words[k] = words[k][:-1]
