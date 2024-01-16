@@ -22,7 +22,10 @@ def get_word(wordlist):
     word = wordlist[num]
     word_letterList = []
     for k in word:
-        word_letterList.append("_")
+        if k ==" ":
+            word_letterList.append(" ")
+        else:
+            word_letterList.append("_")
     return word,word_letterList
 
 def insert_letter_in_guess(theLetter,theGameWord,theCorrectList):
