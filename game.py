@@ -31,11 +31,11 @@ def insert_letter_in_guess(theLetter,theGameWord,theCorrectList):
             theCorrectList[k] = theLetter
     return theCorrectList
 
-def game():
+def game(theFile):
     game_over = False
     mistakes = 0
     wrongLetters = []
-    wordlist = read_file("words.txt")
+    wordlist = read_file(theFile)
     game_word,listCorrectSoFar = get_word(wordlist)
 
     while not game_over:
@@ -73,7 +73,14 @@ def run_game():
     option = input().upper()
     while option != "X":
         if option =="A":
-            game()
+            print("Which topic would you like?")
+            print("[A] Countires of the world, [B] Animals")
+            topic = input().upper()
+            if topic=="A":
+                game("countries.txt")
+            elif topic=="B":
+                game("animals.txt")
+
         print("Options:")
         print("[A] Start New Game, [X] Exit")
         option = input().upper()
